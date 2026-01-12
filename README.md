@@ -64,19 +64,16 @@ cd MyPortfolio
 # Install all dependencies
 npm install
 
-3. Environment Setup (Action Required)
-To protect sensitive information, create a .env file in apps/api/ and provide your own database credentials using the following format:
-
-Kod snippet'i
+### 3. Environment Setup (Action Required)
+# To protect sensitive information, create a .env file in apps/api/ and provide your own database credentials using the following format:
 
 DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@YOUR_HOST:YOUR_PORT/YOUR_DATABASE"
 PORT=3001
-Note: The .env file is ignored by Git for security purposes.
 
-4. Running the Project
-Launch all platforms simultaneously:
+# Note: The .env file is ignored by Git for security purposes.
 
-Bash
+### 4. Running the Project
+# Launch all platforms simultaneously:
 
 npx turbo run dev
 Developed with ❤️ by alikaklk
