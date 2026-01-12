@@ -1,32 +1,32 @@
 # 🚀 MyPortfolio (Full-Stack Monorepo)
 
-Bu proje, **Turborepo** kullanılarak yönetilen, yüksek performanslı bir **Monorepo** mimarisidir. Web, Mobil ve Backend katmanlarını tek bir çatı altında toplayarak modern bir yazılım geliştirme sürecini sergiler.
+A high-performance **Full-Stack Monorepo** managed by **Turborepo**. This project integrates a web application, a mobile application, and a backend service into a single unified workspace.
 
-## 🏗 Proje Yapısı
+## 🏗 Project Architecture
 
-Proje üç ana uygulamadan oluşmaktadır:
+This monorepo consists of three main applications:
 
-- **`apps/web`**: **React.js** ve **Vite** kullanılarak geliştirilen kişisel portfolyo web sitesi.
-- **`apps/mobile`**: **React Native** (TypeScript) ile geliştirilen, çapraz platform mobil uygulama.
-- **`apps/api`**: İletişim formlarını ve verileri işleyen, **Node.js** tabanlı backend servisi.
-- **`packages/`**: Tüm uygulamalar arasında paylaşılan ortak konfigürasyonlar (TSConfig, ESLint, vb.).
+- **`apps/web`**: Personal portfolio website built with **React.js** and **Vite**.
+- **`apps/mobile`**: Cross-platform mobile application developed with **React Native**.
+- **`apps/api`**: Backend service built with **Node.js** to handle business logic and database operations.
+- **`packages/`**: Shared configurations for **TypeScript**, **ESLint**, and common UI components/utilities.
 
-## 🛠 Teknoloji Yığını (Tech Stack)
+## 🛠 Tech Stack
 
 - **Frontend:** React.js, TypeScript, Tailwind CSS
-- **Mobile:** React Native, Expo/CLI
+- **Mobile:** React Native, TypeScript
 - **Backend:** Node.js, Express.js
-- **Database:** PostgreSQL (İletişim formu verileri için)
-- **Monorepo Aracı:** Turborepo
+- **Database:** PostgreSQL (Relational database for contact forms and data persistence)
+- **Tooling:** Turborepo, Vite
 
-## 🌟 Öne Çıkan Özellikler
+## 🌟 Key Features
 
-- **Çapraz Platform:** Portfolyoma hem tarayıcı üzerinden hem de mobil uygulama üzerinden erişilebilir.
-- **Aktif İletişim Formu:** Web ve mobil üzerinden gönderilen mesajlar doğrudan **PostgreSQL** veritabanına kaydedilir.
-- **Shared Logic:** Turborepo sayesinde doğrulama şemaları ve tip tanımlamaları tüm platformlarda ortak kullanılır.
+- **Multi-Platform Experience:** Access the portfolio via a modern web browser or a native mobile app.
+- **Contact System:** A fully functional contact form that persists user messages to a **PostgreSQL** database.
+- **Optimized Workflow:** Shared logic and type definitions across Web, Mobile, and API for maximum consistency.
 
-## 🚀 Başlangıç
+## 🚀 Getting Started
 
-1. **Depoyu klonlayın:**
+1. **Clone the repository:**
    ```bash
    git clone [https://github.com/alikaklk/MyPortfolio.git](https://github.com/alikaklk/MyPortfolio.git)
