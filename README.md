@@ -1,32 +1,58 @@
 # 🚀 MyPortfolio (Full-Stack Monorepo)
 
-A high-performance **Full-Stack Monorepo** managed by **Turborepo**. This project integrates a web application, a mobile application, and a backend service into a single unified workspace.
+A professional, high-performance **Full-Stack Monorepo** managed by **Turborepo**. This project showcases a unified development environment featuring a web app, a mobile app, and a robust backend.
 
-## 🏗 Project Architecture
+## 🏗 Project Structure
 
-This monorepo consists of three main applications:
+Managed via **Turborepo**, the project is organized as follows:
 
 - **`apps/web`**: Personal portfolio website built with **React.js** and **Vite**.
 - **`apps/mobile`**: Cross-platform mobile application developed with **React Native**.
-- **`apps/api`**: Backend service built with **Node.js** to handle business logic and database operations.
-- **`packages/`**: Shared configurations for **TypeScript**, **ESLint**, and common UI components/utilities.
+- **`apps/api`**: Backend service built with **Node.js** & **Express** to handle contact forms.
+- **`packages/`**: Shared **TypeScript** configurations, **ESLint** rules, and common UI types.
 
-## 🛠 Tech Stack
+## 🛠 Tech Stack & Dependencies
 
-- **Frontend:** React.js, TypeScript, Tailwind CSS
-- **Mobile:** React Native, TypeScript
-- **Backend:** Node.js, Express.js
-- **Database:** PostgreSQL (Relational database for contact forms and data persistence)
-- **Tooling:** Turborepo, Vite
+### 💻 Frontend (Web)
+- **Core:** React.js 18+
+- **Tooling:** Vite, TypeScript
+- **Styling:** Tailwind CSS / CSS Modules
+- **Data Fetching:** Axios / TanStack Query
+
+### 📱 Mobile
+- **Core:** React Native (TypeScript)
+- **Navigation:** React Navigation
+- **Icons:** Lucide React / Vector Icons
+
+### ⚙️ Backend & Database
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Database:** **PostgreSQL** (Relational storage)
+- **ORM:** Prisma or Drizzle
+- **Validation:** Zod (for contact form validation)
+
+### 🔧 Infrastructure
+- **Monorepo Tooling:** Turborepo
+- **Package Manager:** npm (or pnpm)
 
 ## 🌟 Key Features
 
-- **Multi-Platform Experience:** Access the portfolio via a modern web browser or a native mobile app.
-- **Contact System:** A fully functional contact form that persists user messages to a **PostgreSQL** database.
-- **Optimized Workflow:** Shared logic and type definitions across Web, Mobile, and API for maximum consistency.
+- **Cross-Platform Accessibility:** Modern web experience and native mobile app in one repo.
+- **Database Integration:** Contact forms that persist messages directly to a PostgreSQL database.
+- **Type Safety:** Shared TypeScript interfaces across API, Web, and Mobile.
+- **Monorepo Efficiency:** Single `npm install` for the entire ecosystem.
 
 ## 🚀 Getting Started
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/alikaklk/MyPortfolio.git](https://github.com/alikaklk/MyPortfolio.git)
+### 1. Prerequisites
+- **Node.js** (Latest LTS)
+- **PostgreSQL** (Local installation or Cloud instance like Supabase/Neon)
+
+### 2. Installation & Setup
+```bash
+# Clone the repository
+git clone [https://github.com/alikaklk/MyPortfolio.git](https://github.com/alikaklk/MyPortfolio.git)
+cd MyPortfolio
+
+# Install all dependencies for all apps at once
+npm install
