@@ -1,0 +1,75 @@
+:root {
+    --bg: #050505;
+    --accent: #00ff88; 
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.042);
+    --border: rgba(255, 255, 255, 0.08);
+    --curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --card:rgba(255, 255, 255, 0.101) ;
+    --strong-text:#37815e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+h2::after {
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    background: var(--border);
+}
+
+strong{
+    text-decoration: underline;
+    color: var(--strong-text);
+}
+
+.AboutContainer{
+    display: flex;
+    padding: 100px 10% 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 140px;
+    border-radius: 30px;
+    background: var(--card);
+
+
+}
+
+
+
+li, p, h2{
+    margin-bottom: 30px;
+}
+
+.AboutImage{
+    height: 500px;
+}
+
+section {
+    
+    color: var(--accent);
+    font-family: 'Times New Roman', Times, serif;
+
+}

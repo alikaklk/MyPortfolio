@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #050505;
+    --accent: #00ff88; 
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --curve: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* apps/web/src/pages/Home.module.css */
+
+.Hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Koyu arka plan ve derinlik hissi için radyal gradyan */
+    background: radial-gradient(circle at center, #111 0%, #050505 100%);
+}
+
+.SplitTextContainer {
+    display: flex;
+    gap: 20px; /* Kelimeler arasındaki boşluk */
+    font-size: clamp(2rem, 6vw, 4rem); /* Responsive yazı boyutu */
+    font-weight: 900;
+    text-transform: uppercase;
+    overflow: hidden; /* Animasyon sırasında taşmaları gizler */
+}
+
+.TextPartLeft, .TextPartRight {
+    display: inline-block;
+    animation-duration: 1.4s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+}
+
+/* H1 stillerini override etme (Bileşen içindeki h1'ler için) */
+.TextPartLeft h1, .TextPartRight h1 {
+    font-size: inherit;
+    background: linear-gradient(to right, #fff, var(--accent, #00ff88));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.TextPartLeft {
+    transform: translateX(-150%);
+    animation-name: slideInLeft;
+}
+
+.TextPartRight {
+    transform: translateX(150%);
+    animation-name: slideInRight;
+}
+
+.HeroP {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--text-dim, #a0a0a0);
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.2s forwards; /* Yazı animasyonundan sonra belirir */
+}
+
+/* Animasyon Tanımları */
+@keyframes slideInLeft {
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}

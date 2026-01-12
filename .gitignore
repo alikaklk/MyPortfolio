@@ -1,0 +1,11 @@
+# Root node_modules
+node_modules/
+
+# Turborepo & Build
+.turbo/
+dist/
+build/
+
+# Security (Bunu ana dizine eklemek tüm alt klasörleri korur)
+.env
+.env.*
