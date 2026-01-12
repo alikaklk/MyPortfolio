@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import About from "./pages/About"; // Doğru ve temiz yol
+import Home from "./pages/HomePage/Home";
+import About from "../../web/src/pages/AboutPage/About";
+import Skills from "../../web/src/pages/SkillsPage/Skills";
 
 export default function App() {
   return (
@@ -10,7 +11,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/apps/web/src/pages/About.tsx" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
         </Routes>
       </main>
     </BrowserRouter>

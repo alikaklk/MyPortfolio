@@ -1,8 +1,8 @@
 {
   "name": "myportfolio",
-  "private":true,
+  "private": true,
   "packageManager": "npm@10.8.2",
-  "workspaces":[
+  "workspaces": [
     "apps/*",
     "packages/*"
   ],
@@ -24,6 +24,8 @@
   "description": "",
   "devDependencies": {
     "turbo": "latest"
+  },
+  "dependencies": {
+    "@skill-icons/react": "^0.0.1"
   }
-  
 }

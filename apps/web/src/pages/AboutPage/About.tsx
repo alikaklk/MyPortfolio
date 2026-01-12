@@ -1,5 +1,5 @@
-import styles from "./About.module.css";
-import myPhoto from "../../../images/myPhoto.png";
+import styles from "../AboutPage/About.module.css";
+import myPhoto from "../../../../images/myPhoto.png";
 
 export default function About(){
     return(

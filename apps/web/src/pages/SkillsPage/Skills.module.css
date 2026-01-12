@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #050505;
+    --accent: #00ff88; 
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --card:rgba(255, 255, 255, 0.101) ;
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+}
+
+
+.SkillsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: 140px auto 0;
+    border-radius: 60px;
+    background: var(--card);
+    min-height: 350px;
+}
+
+.SkillsIconsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.SkillsIcons {
+    width: 55px !important;
+    height: 55px !important;
+    transition: transform 0.3s var(--curve);
+    cursor: pointer;
+}
+
+.SkillsIcons:hover {
+    transform: translateY(-10px) scale(1.15);
+    filter: drop-shadow(0 0 15px var(--accent));
+}
+
+.IconsAndNameContainer{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--accent);
+}
+
+h2::after {
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    background: var(--border);
+}

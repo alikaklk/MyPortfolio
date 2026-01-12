@@ -10,7 +10,7 @@ export default function Navbar() {
             <Link to="/" className={styles.NavLink}>Home</Link>
           </li>
           <li>
-            <Link to="/apps/web/src/pages/About.tsx" className={styles.NavLink}>About</Link>
+            <Link to="/about" className={styles.NavLink}>About</Link>
           </li>
           <li>
             <Link to="/skills" className={styles.NavLink}>Skills</Link>
