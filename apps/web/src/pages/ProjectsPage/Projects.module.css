@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #050505;
+    --accent: #00ff88; 
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --card:rgba(255, 255, 255, 0.101) ;
+    --border: rgba(255, 255, 255, 0.08);
+    --button: #09d576;
+}  
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+}
+
+.ProjectsPageContainer{
+    max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 48px 24px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  align-items: center;
+
+}
+
+.ProjectsPageContainer h1{
+    font-family: 'Times New Roman', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 2px 2px 8px var(--text-dim);
+    margin: 0 0 20px;
+
+}
+
+.ProjectsCardsContainer{
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.ProjectCard{
+    max-width: 1200px;
+    background-color: var(--card);
+    border-radius: 60px;
+    margin-bottom: 30px;
+    padding: 48px 24px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+
+}
+
+.ProjectViewLink{
+    text-decoration:none;
+    color: var(--text-main);
+}
+
+.ProjectViewButton{
+    background-color: var(--button);
+    border-radius: 80px;
+    height: 30px;
+    width: 100px;
+}
+

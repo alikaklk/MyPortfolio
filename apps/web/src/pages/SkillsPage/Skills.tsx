@@ -2,7 +2,9 @@ import styles from '../SkillsPage/Skills.module.css';
 import { 
   AppleLight,
   Html, 
-  Css, 
+  Css,
+  JavaScript,
+  TypeScript, 
   ReactLight, 
   TailwindCssLight, 
   NodeJsLight, 
@@ -22,6 +24,8 @@ export default function Skills() {
                 <div className={styles.IconsAndNameContainer}><AppleLight className={styles.SkillsIcons}/><h3>Apple</h3></div>
                 <div className={styles.IconsAndNameContainer}><Html className={styles.SkillsIcons}/><h3>HTML</h3></div>
                 <div className={styles.IconsAndNameContainer}><Css className={styles.SkillsIcons}/><h3>CSS</h3></div>
+                <div className={styles.IconsAndNameContainer}><JavaScript className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
+                <div className={styles.IconsAndNameContainer}><TypeScript className={styles.SkillsIcons}/><h3>TypeScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><ReactLight className={styles.SkillsIcons}/><h3>React</h3></div>
                 <div className={styles.IconsAndNameContainer}><TailwindCssLight className={styles.SkillsIcons}/><h3>TailwindCSS</h3></div>
                 <div className={styles.IconsAndNameContainer}><NodeJsLight className={styles.SkillsIcons}/><h3>NodeJs</h3></div>

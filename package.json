@@ -26,6 +26,7 @@
     "turbo": "latest"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@skill-icons/react": "^0.0.1"
   }
 }
