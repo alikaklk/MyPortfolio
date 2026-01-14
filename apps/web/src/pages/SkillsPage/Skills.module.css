@@ -13,8 +13,7 @@
     --glass: rgba(255, 255, 255, 0.03);
     --border: rgba(255, 255, 255, 0.08);
     --curve: cubic-bezier(0.4, 0, 0.2, 1);
-    --card:rgba(255, 255, 255, 0.101) ;
-    --border: rgba(255, 255, 255, 0.08);
+    --card: rgba(255, 255, 255, 0.101);
 }
 
 body {
@@ -23,9 +22,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    
 }
-
 
 .SkillsContainer {
     display: flex;
@@ -61,7 +58,7 @@ body {
     filter: drop-shadow(0 0 15px var(--accent));
 }
 
-.IconsAndNameContainer{
+.IconsAndNameContainer {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
@@ -73,6 +70,7 @@ h2 {
     align-items: center;
     gap: 15px;
     color: var(--accent);
+    width: 100%;
 }
 
 h2::after {
@@ -80,4 +78,31 @@ h2::after {
     height: 1px;
     flex-grow: 1;
     background: var(--border);
+}
+
+@media (max-width: 768px) {
+    .SkillsContainer {
+        padding: 40px 5%;
+        margin-top: 100px;
+        border-radius: 30px;
+        min-height: auto;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        justify-content: center;
+    }
+
+    h2::after {
+        display: none;
+    }
+
+    .SkillsIconsContainer {
+        gap: 20px;
+    }
+
+    .SkillsIcons {
+        width: 45px !important;
+        height: 45px !important;
+    }
 }

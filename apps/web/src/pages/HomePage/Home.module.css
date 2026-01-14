@@ -23,8 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-/* apps/web/src/pages/Home.module.css */
-
 .Hero {
     height: 100vh;
     display: flex;
@@ -32,17 +30,17 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Koyu arka plan ve derinlik hissi için radyal gradyan */
     background: radial-gradient(circle at center, #111 0%, #050505 100%);
+    padding: 0 20px;
 }
 
 .SplitTextContainer {
     display: flex;
-    gap: 20px; /* Kelimeler arasındaki boşluk */
-    font-size: clamp(2rem, 6vw, 4rem); /* Responsive yazı boyutu */
+    gap: 20px;
+    font-size: clamp(2rem, 6vw, 4rem);
     font-weight: 900;
     text-transform: uppercase;
-    overflow: hidden; /* Animasyon sırasında taşmaları gizler */
+    overflow: hidden;
 }
 
 .TextPartLeft, .TextPartRight {
@@ -52,7 +50,6 @@ body {
     animation-fill-mode: forwards;
 }
 
-/* H1 stillerini override etme (Bileşen içindeki h1'ler için) */
 .TextPartLeft h1, .TextPartRight h1 {
     font-size: inherit;
     background: linear-gradient(to right, #fff, var(--accent, #00ff88));
@@ -77,10 +74,9 @@ body {
     color: var(--text-dim, #a0a0a0);
     max-width: 600px;
     opacity: 0;
-    animation: fadeIn 1s ease-out 1.2s forwards; /* Yazı animasyonundan sonra belirir */
+    animation: fadeIn 1s ease-out 1.2s forwards;
 }
 
-/* Animasyon Tanımları */
 @keyframes slideInLeft {
     to { transform: translateX(0); }
 }
@@ -91,4 +87,21 @@ body {
 
 @keyframes fadeIn {
     to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .SplitTextContainer {
+        flex-direction: column;
+        gap: 0;
+        line-height: 1.1;
+    }
+
+    .TextPartLeft, .TextPartRight {
+        animation-duration: 1s;
+    }
+
+    .HeroP {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
 }

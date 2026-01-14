@@ -11,7 +11,6 @@
     display: flex;
     gap: 30px;
     padding: 12px 40px;
-    /* index.css'teki değişkenleri kullanır, yoksa fallback renklere geçer */
     background: var(--glass, rgba(255, 255, 255, 0.03));
     backdrop-filter: blur(15px);
     border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
@@ -30,4 +29,33 @@
 .NavLink:hover {
     color: var(--accent, #00ff88);
     text-shadow: 0 0 10px var(--accent, #00ff88);
+}
+
+@media (max-width: 768px) {
+    .Header {
+        top: 10px;
+        width: 90%;
+    }
+
+    .NavUl {
+        gap: 15px;
+        padding: 10px 20px;
+        justify-content: center;
+        border-radius: 50px;
+    }
+
+    .NavLink {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .NavUl {
+        gap: 10px;
+        padding: 8px 15px;
+    }
+
+    .NavLink {
+        font-size: 0.7rem;
+    }
 }

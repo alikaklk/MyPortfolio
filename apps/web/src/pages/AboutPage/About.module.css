@@ -73,3 +73,38 @@ section {
     font-family: 'Times New Roman', Times, serif;
 
 }
+
+@media (max-width: 1024px) {
+    .AboutContainer {
+        flex-direction: column;
+        padding: 60px 5%;
+        margin-top: 100px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        justify-content: center;
+    }
+
+    h2::after {
+        display: none;
+    }
+
+    .AboutImage {
+        height: auto;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .AboutContainer {
+        padding: 40px 20px;
+        border-radius: 0;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+}

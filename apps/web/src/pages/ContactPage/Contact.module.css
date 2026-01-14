@@ -147,3 +147,23 @@ body {
 .SocialIcon:hover {
     transform: scale(1.1) translateY(-3px);
 }
+
+@media (max-width: 768px) {
+    .ContactFormContainer {
+        padding: 25px;
+        width: 95%;
+    }
+
+    .ContactTitle {
+        font-size: 1.5rem;
+    }
+
+    .SocialLinks {
+        gap: 20px;
+    }
+
+    .SocialIcon svg {
+        width: 45px !important;
+        height: 45px !important;
+    }
+}
