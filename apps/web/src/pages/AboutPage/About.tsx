@@ -1,41 +1,22 @@
 import styles from "../AboutPage/About.module.css";
 import myPhoto from "../../../../images/myPhoto.png";
 
-export default function About() {
-  return (
-    <div className={styles.AboutContainer}>
-      <section className={styles.TextSection}>
-        <h2 className={styles.Title}>The Engineer Behind the Code</h2>
-        
-        <p className={styles.Bio}>
-          I am a Software Engineering student at <strong>Eastern Mediterranean University</strong>, 
-          dedicated to building robust applications and exploring the depths of full-stack development. 
-          My journey is driven by a constant curiosity for how complex systems work and a passion for 
-          turning ideas into functional code.
-        </p>
-
-        <div className={styles.HighlightGrid}>
-          <div className={styles.HighlightItem}>
-            <h3>Education</h3>
-            <p>Pursuing Software Engineering at EMU, mastering algorithms and architecture.</p>
-          </div>
-          
-          <div className={styles.HighlightItem}>
-            <h3>Philosophy</h3>
-            <p>Focusing on writing clean, maintainable code and solving real-world problems.</p>
-          </div>
+export default function About(){
+    return(
+      
+        <div className={styles.AboutContainer}>
+            <section>
+                <h2>About Me</h2>
+                <p>I am a dedicated Software Engineering student driven by the challenge of building scalable applications and solving complex digital problems.</p>
+                <ul>
+                    <li className={styles.p}><strong>Education:</strong> Pursuing a degree in Software Engineering at <strong>Eastern Mediterranean University</strong>, where I focus on software architecture, algorithmic efficiency, and modern development methodologies.</li>
+                    <li className={styles.p}><strong>Focus:</strong> Actively developing full-stack solutions with a strong emphasis on creating responsive, user-centric interfaces and robust backend systems.</li>
+                    <li className={styles.p}><strong>Core Tech:</strong> Specialized in JavaScript/TypeScript ecosystems including React and Node.js, alongside a solid foundation in Python for automation and data processing.</li>
+                </ul>
+                <p>I’m always looking for opportunities to collaborate on innovative projects. If you'd like to build something impactful together, let’s connect!</p>
+            </section>
+            <img src={myPhoto} className={styles.AboutImage} alt="Ali Kaklik" />
         </div>
-
-        <p className={styles.CallToAction}>
-          I'm always open to collaboration on innovative projects. 
-          <strong> Let's build something great together.</strong>
-        </p>
-      </section>
-
-      <div className={styles.ImageWrapper}>
-        <img src={myPhoto} alt="Ali Kaklik" className={styles.AboutImage} />
-        <div className={styles.ImageBackdrop}></div>
-      </div>
-    </div>
-  );
+        
+    );
 }
