@@ -1,5 +1,5 @@
 import styles from '../SkillsPage/Skills.module.css';
-import { 
+import {
   JavaScript,
   TypeScript, 
   ReactLight, 
@@ -8,7 +8,9 @@ import {
   PostgreSqlLight, 
   PythonLight, 
   Git, 
-  GithubLight
+  GithubLight,
+  Html,
+  Css
 } from "@skill-icons/react";
 
 export default function Skills() {
@@ -16,6 +18,8 @@ export default function Skills() {
         <div className={styles.SkillsContainer}>
             <h2>My Skills And Tools</h2>
             <div className={styles.SkillsIconsContainer}>
+                <div className={styles.IconsAndNameContainer}><Html className={styles.SkillsIcons}/><h3>Html</h3></div>
+                <div className={styles.IconsAndNameContainer}><Css className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><JavaScript className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><TypeScript className={styles.SkillsIcons}/><h3>TypeScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><ReactLight className={styles.SkillsIcons}/><h3>React</h3></div>
