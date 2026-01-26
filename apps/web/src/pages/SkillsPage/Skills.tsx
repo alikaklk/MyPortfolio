@@ -19,7 +19,7 @@ export default function Skills() {
             <h2>My Skills And Tools</h2>
             <div className={styles.SkillsIconsContainer}>
                 <div className={styles.IconsAndNameContainer}><Html className={styles.SkillsIcons}/><h3>Html</h3></div>
-                <div className={styles.IconsAndNameContainer}><Css className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
+                <div className={styles.IconsAndNameContainer}><Css className={styles.SkillsIcons}/><h3>Css</h3></div>
                 <div className={styles.IconsAndNameContainer}><JavaScript className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><TypeScript className={styles.SkillsIcons}/><h3>TypeScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><ReactLight className={styles.SkillsIcons}/><h3>React</h3></div>
