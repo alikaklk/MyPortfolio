@@ -1,22 +1,41 @@
 import styles from "../AboutPage/About.module.css";
 import myPhoto from "../../../../images/myPhoto.png";
 
-export default function About(){
-    return(
-      
-        <div className={styles.AboutContainer}>
-            <section>
-                <h2>About Me:</h2>
-                <p>I'm Ali Kaklik, a software engineering student with a passion for learning and developing innovative solutions. </p>
-                <ul>
-                    <li className={styles.p}><strong>Education:</strong> Currently studying Software Engineering at <strong>Eastern Mediterranean University</strong>, with a focus on computer programming principles and software development methodologies.</li>
-                    <li className={styles.p}><strong>Experience:</strong> 3 months of experience in software development, with a focus on front-end development using HTML, CSS, JS, and Angular. </li>
-                    <li className={styles.p}><strong>Skills:</strong> proficiency in HTML, CSS, JavaScript, Python, and Angular, with a strong foundation in computer programming principles. </li>
-                </ul>
-                <p>If you're interested in learning more about my projects or collaborating on a project, feel free to reach out to me!</p>
-            </section>
-            <img src={myPhoto} className={styles.AboutImage} />
-        </div>
+export default function About() {
+  return (
+    <div className={styles.AboutContainer}>
+      <section className={styles.TextSection}>
+        <h2 className={styles.Title}>The Engineer Behind the Code</h2>
         
-    );
+        <p className={styles.Bio}>
+          I am a Software Engineering student at <strong>Eastern Mediterranean University</strong>, 
+          dedicated to building robust applications and exploring the depths of full-stack development. 
+          My journey is driven by a constant curiosity for how complex systems work and a passion for 
+          turning ideas into functional code.
+        </p>
+
+        <div className={styles.HighlightGrid}>
+          <div className={styles.HighlightItem}>
+            <h3>Education</h3>
+            <p>Pursuing Software Engineering at EMU, mastering algorithms and architecture.</p>
+          </div>
+          
+          <div className={styles.HighlightItem}>
+            <h3>Philosophy</h3>
+            <p>Focusing on writing clean, maintainable code and solving real-world problems.</p>
+          </div>
+        </div>
+
+        <p className={styles.CallToAction}>
+          I'm always open to collaboration on innovative projects. 
+          <strong> Let's build something great together.</strong>
+        </p>
+      </section>
+
+      <div className={styles.ImageWrapper}>
+        <img src={myPhoto} alt="Ali Kaklik" className={styles.AboutImage} />
+        <div className={styles.ImageBackdrop}></div>
+      </div>
+    </div>
+  );
 }

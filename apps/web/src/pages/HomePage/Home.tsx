@@ -11,7 +11,7 @@ export default function Home() {
                 <h1>my portfolio!</h1>
             </span>
         </div>
-        <p className={styles.HeroP}>I'm Ali Kaklik, a Software Engineer.</p>
+        <p className={styles.HeroP}>I'm Ali Kaklik, a Full-Stack Software Engineer.</p>
     </section>
   );
 }
