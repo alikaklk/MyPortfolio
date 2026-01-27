@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import MobileNavbar from "./components/MobileNavbar"
 import Home from "./pages/HomePage/Home";
 import About from "../../web/src/pages/AboutPage/About";
 import Skills from "../../web/src/pages/SkillsPage/Skills";
@@ -24,9 +23,7 @@ export default function App() {
         </Routes>
       </main>
 
-      <div className="lg:hidden">
-        <MobileNavbar />
-      </div>
+      
     </BrowserRouter>
   );
 }

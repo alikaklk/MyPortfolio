@@ -1,61 +1,28 @@
-import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { Home, User, Code2, LayoutGrid, Mail } from 'lucide-react';
+import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css";
 
-const navItems = [
-  { id: 'home', icon: Home, label: 'Home', path: '/' },
-  { id: 'about', icon: User, label: 'About', path: '/about' },
-  { id: 'skills', icon: Code2, label: 'Skills', path: '/skills' },
-  { id: 'projects', icon: LayoutGrid, label: 'Projects', path: '/projects' },
-  { id: 'contact', icon: Mail, label: 'Contact', path: '/contact' },
-];
-
-export default function MobileNavbar() {
-  const location = useLocation();
-
+export default function Navbar() {
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[420px] z-[9999]">
-      <nav className="bg-[#121212]/80 backdrop-blur-xl border border-white/10 rounded-[28px] p-2 flex justify-around items-center shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-        {navItems.map((item) => {
-          const isActive = location.pathname === item.path;
-          const Icon = item.icon;
-
-          return (
-            <Link
-              key={item.id}
-              to={item.path}
-              className="relative flex items-center justify-center py-3 px-4 no-underline transition-colors"
-            >
-              {/* Aktif Arka Plan Efekti (Hap Görünümü) */}
-              {isActive && (
-                <motion.div
-                  layoutId="mobile-nav-pill"
-                  className="absolute inset-0 bg-white/10 rounded-2xl"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-
-              <div className="relative flex items-center gap-2 z-10">
-                <Icon 
-                  size={20} 
-                  className={isActive ? "text-white" : "text-gray-500"} 
-                  strokeWidth={isActive ? 2.5 : 2}
-                />
-                
-                {isActive && (
-                  <motion.span
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="text-white text-[13px] font-semibold tracking-wide"
-                  >
-                    {item.label}
-                  </motion.span>
-                )}
-              </div>
-            </Link>
-          );
-        })}
+    <header className={styles.Header}>
+      <nav>
+        <ul className={styles.NavUl}>
+          <li>
+            <Link to="/" className={styles.NavLink}>Home</Link>
+          </li>
+          <li>
+            <Link to="/about" className={styles.NavLink}>About</Link>
+          </li>
+          <li>
+            <Link to="/skills" className={styles.NavLink}>Skills</Link>
+          </li>
+          <li>
+            <Link to="/projects" className={styles.NavLink}>Projects</Link>
+          </li>
+          <li>
+            <Link to="/contact" className={styles.NavLink}>Contact</Link>
+          </li>
+        </ul>
       </nav>
-    </div>
+    </header>
   );
 }
