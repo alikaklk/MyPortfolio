@@ -10,7 +10,8 @@ import {
   Git, 
   GithubLight,
   Html,
-  Css
+  Css,
+  AngularLight
 } from "@skill-icons/react";
 
 export default function Skills() {
@@ -22,6 +23,7 @@ export default function Skills() {
                 <div className={styles.IconsAndNameContainer}><Css className={styles.SkillsIcons}/><h3>Css</h3></div>
                 <div className={styles.IconsAndNameContainer}><JavaScript className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
                 <div className={styles.IconsAndNameContainer}><TypeScript className={styles.SkillsIcons}/><h3>TypeScript</h3></div>
+                <div className={styles.IconsAndNameContainer}><AngularLight className={styles.SkillsIcons}/><h3>Angular</h3></div>
                 <div className={styles.IconsAndNameContainer}><ReactLight className={styles.SkillsIcons}/><h3>React</h3></div>
                 <div className={styles.IconsAndNameContainer}><TailwindCssLight className={styles.SkillsIcons}/><h3>TailwindCSS</h3></div>
                 <div className={styles.IconsAndNameContainer}><NodeJsLight className={styles.SkillsIcons}/><h3>NodeJs</h3></div>
