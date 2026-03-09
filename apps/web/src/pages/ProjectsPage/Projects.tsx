@@ -7,9 +7,9 @@ export default function Projects() {
             <h1>My Projects!</h1>
             <div className={styles.ProjectsCardsContainer}>
                 <div className={styles.ProjectCard}>
-                    <h2>Project 1</h2>
-                    <p>Coming Soon...</p>
-                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="#">View Project</a></button>
+                    <h2>Guardian: macOS Native IDS/IPS</h2>
+                    <p>Tech Stack:Python, Shell, macOS PF (Packet Filter)</p>
+                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/Guardian-IP-Blocker" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
                 </div>
                 <div className={styles.ProjectCard}>
                     <h2>Project 2</h2>
