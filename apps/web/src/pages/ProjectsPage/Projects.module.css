@@ -93,4 +93,16 @@ body {
     .ProjectsPageContainer h1 {
         margin-bottom: 20px;
     }
+
+    .ProjectImage {
+        height: 150px; /* Mobilde biraz daha kısa yap */
+    }
+}
+
+.ProjectImage {
+  width: 100%;             /* Kartın genişliğini tamamen kapla */
+  height: 180px;           /* Sabit bir yükseklik ver */
+  object-fit: cover;       /* Resmi çarpıtmadan sığdır */
+  border-radius: 8px 8px 0 0; /* Sadece üst köşeleri yuvarla */
+  display: block;          /* Boşlukları engelle */
 }
