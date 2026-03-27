@@ -13,7 +13,7 @@ export default function Projects() {
                 </div>
                 <div className={styles.ProjectCard}>
                     <h2>SafeGuard Leak Checker</h2>
-                    <img className={styles.ProjectImage} src="./image.png" alt="" />
+                    
                     <p>
                         Go ve Next.js kullanılarak geliştirilmiş, yüksek performanslı bir siber güvenlik aracı. 
                         Milyonlarca satırlık veri sızıntısını saniyeler içinde tarayarak dijital güvenliğinizi kontrol eder.
