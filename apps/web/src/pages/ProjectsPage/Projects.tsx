@@ -23,9 +23,9 @@ export default function Projects() {
                         <span>Next.js</span>
                         <span>TypeScript</span>
                     </div>
-                    <button className={styles.ProjectViewButton}>
-                        <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/safeguard-leak-checker" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
-                    </button>
+                    
+                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/safeguard-leak-checker" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
+                    
                     </div>
                 <div className={styles.ProjectCard}>
                     <h2>Project 3</h2>
