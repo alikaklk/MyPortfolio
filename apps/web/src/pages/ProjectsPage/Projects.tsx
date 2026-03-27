@@ -24,9 +24,7 @@ export default function Projects() {
                         <span>TypeScript</span>
                     </div>
                     <button className={styles.ProjectViewButton}>
-                        <a href="https://github.com/alikaklk/safeguard-leak-checker" className={styles.ProjectLink}>
-                        Wiew on GitHub
-                        </a>
+                        <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/safeguard-leak-checker" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
                     </button>
                     </div>
                 <div className={styles.ProjectCard}>
