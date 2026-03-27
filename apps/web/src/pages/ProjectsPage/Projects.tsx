@@ -13,6 +13,7 @@ export default function Projects() {
                 </div>
                 <div className={styles.ProjectCard}>
                     <h2>SafeGuard Leak Checker</h2>
+                    <img src="../../../public/image.png" alt="" />
                     <p>
                         Go ve Next.js kullanılarak geliştirilmiş, yüksek performanslı bir siber güvenlik aracı. 
                         Milyonlarca satırlık veri sızıntısını saniyeler içinde tarayarak dijital güvenliğinizi kontrol eder.
@@ -24,7 +25,7 @@ export default function Projects() {
                     </div>
                     <button className={styles.ProjectViewButton}>
                         <a href="https://github.com/alikaklk/safeguard-leak-checker" className={styles.ProjectLink}>
-                        GitHub'da Görüntüle
+                        Wiew on GitHub
                         </a>
                     </button>
                     </div>
