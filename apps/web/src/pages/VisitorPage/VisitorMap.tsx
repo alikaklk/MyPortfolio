@@ -3,66 +3,48 @@ import Globe from 'react-globe.gl';
 
 export default function VisitorMap() {
   const [visitors, setVisitors] = useState<any[]>([]);
-  const globeEl = useRef<any>();
-  const [dimensions, setDimensions] = useState({ 
-    width: window.innerWidth, 
-    height: window.innerHeight 
-  });
+  const globeEl = useRef<any>(null);
+  const [dimensions, setDimensions] = useState({ width: 400, height: 400 });
 
-  // Mobil ekran boyutu değiştiğinde haritayı yeniden boyutlandır
   useEffect(() => {
+    // Ekran boyutunu ayarla
+    setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    
     const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
     };
-
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
-  useEffect(() => {
-    // 1. Ziyaretçiyi Kaydet
-    const register = async () => {
+    // Verileri çek
+    const fetchData = async () => {
       try {
-        const geoRes = await fetch('https://ipapi.co/json/');
-        const geoData = await geoRes.json();
-        
+        const geo = await fetch('https://ipapi.co/json/').then(r => r.json());
+        // Önce backend'e gönder
         await fetch('http://localhost:5001/api/visit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            lat: geoData.latitude, 
-            lon: geoData.longitude, 
-            city: geoData.city 
-          })
-        });
-      } catch (e) { console.log("Backend offline"); }
+          body: JSON.stringify({ lat: geo.latitude, lon: geo.longitude, city: geo.city })
+        }).catch(() => console.log("Local backend bağlı değil"));
+
+        // Sonra listeyi al
+        const res = await fetch('http://localhost:5001/api/visitors').then(r => r.json());
+        setVisitors(res);
+      } catch (e) {
+        // Test için boş da olsa bir nokta ekle (Dünya boş kalmasın)
+        setVisitors([{ lat: 41, lng: 29, city: 'Istanbul' }]);
+      }
     };
 
-    // 2. Verileri Çek
-    const refresh = () => {
-      fetch('http://localhost:5001/api/visitors')
-        .then(res => res.json())
-        .then(setVisitors)
-        .catch(() => {});
+    fetchData();
+    const interval = setInterval(fetchData, 10000);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearInterval(interval);
     };
-
-    register().then(refresh);
-    const interval = setInterval(refresh, 5000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div style={{ 
-      background: '#000', 
-      height: '100dvh', // Mobil tarayıcı barları için dynamic vh
-      width: '100vw', 
-      position: 'relative', 
-      overflow: 'hidden', 
-      zIndex: 1 
-    }}>
+    <div style={{ background: '#000', height: '100dvh', width: '100vw', position: 'relative', overflow: 'hidden', zIndex: 1 }}>
       <Globe
         ref={globeEl}
         width={dimensions.width}
@@ -79,10 +61,9 @@ export default function VisitorMap() {
         atmosphereColor="#00ff88"
       />
       
-      {/* Harita Üstü Gösterge - Mobilde Navbar'ın üstünde kalması için bottom yükseltildi */}
       <div style={styles.badge}>
         <div style={styles.dot}></div>
-        <span>TRAFİK: {visitors.length}</span>
+        <span>LIVE: {visitors.length}</span>
       </div>
     </div>
   );
@@ -90,27 +71,11 @@ export default function VisitorMap() {
 
 const styles: Record<string, React.CSSProperties> = {
   badge: {
-    position: 'absolute', 
-    bottom: '100px', // Mobilde Navbar altta (24px) olduğu için çakışmaz
-    left: '20px',
-    backgroundColor: 'rgba(0,0,0,0.8)', 
-    padding: '8px 15px',
-    borderRadius: '10px', 
-    border: '1px solid #00ff88',
-    color: '#00ff88', 
-    display: 'flex', 
-    alignItems: 'center', 
-    gap: '8px',
-    zIndex: 10, 
-    fontSize: '12px', 
-    fontWeight: 'bold',
-    pointerEvents: 'none'
+    position: 'absolute', bottom: '120px', left: '20px',
+    backgroundColor: 'rgba(0,0,0,0.8)', padding: '8px 15px',
+    borderRadius: '10px', border: '1px solid #00ff88',
+    color: '#00ff88', display: 'flex', alignItems: 'center', gap: '8px',
+    zIndex: 10, fontSize: '12px', fontWeight: 'bold'
   },
-  dot: { 
-    width: '8px', 
-    height: '8px', 
-    backgroundColor: '#00ff88', 
-    borderRadius: '50%',
-    boxShadow: '0 0 10px #00ff88'
-  }
+  dot: { width: '8px', height: '8px', backgroundColor: '#00ff88', borderRadius: '50%', boxShadow: '0 0 10px #00ff88' }
 };
