@@ -12,34 +12,32 @@
     display: flex;
     gap: 30px;
     padding: 12px 40px;
-    background: var(--glass, rgba(255, 255, 255, 0.03));
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 100px;
     list-style: none;
+    margin: 0;
 }
 
 .NavLink {
     text-decoration: none;
-    color: var(--text-dim, #a0a0a0);
+    color: #a0a0a0;
     font-weight: 500;
     font-size: 0.9rem;
-    transition: var(--curve, cubic-bezier(0.4, 0, 0.2, 1));
+    transition: all 0.3s ease;
 }
 
 .NavLink:hover {
-    color: var(--accent, #00ff88);
-    text-shadow: 0 0 10px var(--accent, #00ff88);
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
 }
 
-/* --- YENİ EKLENEN MOBİL KISIMLAR --- */
-
 .MobileNav {
-    display: none; /* Masaüstünde gizli */
+    display: none; 
 }
 
 @media (max-width: 1024px) {
-    /* Masaüstü tasarımını tamamen kapat (mor link sorununu çözen yer) */
     .NavUl {
         display: none !important;
     }
@@ -47,7 +45,9 @@
     .Header {
         width: 100%;
         top: auto;
-        bottom: 24px; /* Alt kısma alıyoruz */
+        bottom: 24px; 
+        left: 0;
+        transform: none;
         display: flex;
         justify-content: center;
     }
