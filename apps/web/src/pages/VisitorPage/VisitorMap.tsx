@@ -4,39 +4,24 @@ import Globe from 'react-globe.gl';
 export default function VisitorMap() {
   const [visitors, setVisitors] = useState<any[]>([]);
   const globeEl = useRef<any>(null);
-  const [dimensions, setDimensions] = useState({ width: 400, height: 400 });
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   useEffect(() => {
-    // Ekran boyutunu ayarla
-    setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    
-    const handleResize = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
+    const handleResize = () => setSize({ width: window.innerWidth, height: window.innerHeight });
     window.addEventListener('resize', handleResize);
 
-    // Verileri çek
-    const fetchData = async () => {
+    const getArchive = async () => {
       try {
-        const geo = await fetch('https://ipapi.co/json/').then(r => r.json());
-        // Önce backend'e gönder
-        await fetch('http://localhost:5001/api/visit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ lat: geo.latitude, lon: geo.longitude, city: geo.city })
-        }).catch(() => console.log("Local backend bağlı değil"));
-
-        // Sonra listeyi al
-        const res = await fetch('http://localhost:5001/api/visitors').then(r => r.json());
-        setVisitors(res);
+        const res = await fetch('http://localhost:5001/api/visitors');
+        const data = await res.json();
+        setVisitors(data);
       } catch (e) {
-        // Test için boş da olsa bir nokta ekle (Dünya boş kalmasın)
-        setVisitors([{ lat: 41, lng: 29, city: 'Istanbul' }]);
+        console.log("Arşiv yüklenemedi.");
       }
     };
 
-    fetchData();
-    const interval = setInterval(fetchData, 10000);
+    getArchive();
+    const interval = setInterval(getArchive, 20000); 
     return () => {
       window.removeEventListener('resize', handleResize);
       clearInterval(interval);
@@ -47,23 +32,31 @@ export default function VisitorMap() {
     <div style={{ background: '#000', height: '100dvh', width: '100vw', position: 'relative', overflow: 'hidden', zIndex: 1 }}>
       <Globe
         ref={globeEl}
-        width={dimensions.width}
-        height={dimensions.height}
+        width={size.width}
+        height={size.height}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        
+        // Siber Noktalar
         pointsData={visitors}
-        pointColor={() => '#00ff88'}
-        pointRadius={0.5}
+        pointColor={(d: any) => d.color}
+        pointAltitude={0.02}
+        pointRadius={0.3}
+        
+        // Siber Halkalar
         ringsData={visitors}
-        ringColor={() => '#00ff88'}
+        ringColor={(d: any) => d.color}
         ringMaxRadius={10}
+        ringPropagationSpeed={2.5}
+        ringRepeatPeriod={1000}
+        
         showAtmosphere={true}
         atmosphereColor="#00ff88"
       />
       
       <div style={styles.badge}>
         <div style={styles.dot}></div>
-        <span>LIVE: {visitors.length}</span>
+        <span>TOPLAM TEKİL LOKASYON: {visitors.length}</span>
       </div>
     </div>
   );
@@ -72,10 +65,10 @@ export default function VisitorMap() {
 const styles: Record<string, React.CSSProperties> = {
   badge: {
     position: 'absolute', bottom: '120px', left: '20px',
-    backgroundColor: 'rgba(0,0,0,0.8)', padding: '8px 15px',
-    borderRadius: '10px', border: '1px solid #00ff88',
-    color: '#00ff88', display: 'flex', alignItems: 'center', gap: '8px',
-    zIndex: 10, fontSize: '12px', fontWeight: 'bold'
+    backgroundColor: 'rgba(0,0,0,0.85)', padding: '10px 18px',
+    borderRadius: '12px', border: '1px solid #00ff88',
+    color: '#00ff88', display: 'flex', alignItems: 'center', gap: '10px',
+    zIndex: 10, fontSize: '13px', fontWeight: 'bold', fontFamily: 'monospace'
   },
-  dot: { width: '8px', height: '8px', backgroundColor: '#00ff88', borderRadius: '50%', boxShadow: '0 0 10px #00ff88' }
+  dot: { width: '10px', height: '10px', backgroundColor: '#00ff88', borderRadius: '50%', boxShadow: '0 0 10px #00ff88' }
 };

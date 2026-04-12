@@ -5,26 +5,52 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let visitors = []; // Hafızada tutulan ziyaretçiler
+let visitors = [];
 
-// Frontend'den gelen ziyaretçi verisini kaydeder
 app.post('/api/visit', (req, res) => {
     const { lat, lon, city } = req.body;
+
     if (lat && lon) {
-        // Yeni ziyaretçiyi ekle
-        visitors.push({ lat, lng: lon, city, id: Date.now() });
-        // Listeyi son 100 kişiyle sınırla
-        if (visitors.length > 100) visitors.shift();
-        console.log(`Yeni ziyaretçi: ${city} (${lat}, ${lon})`);
-        return res.status(200).json({ status: "ok" });
+        // Koordinatları karşılaştırmak için sabitle
+        const latFixed = parseFloat(lat).toFixed(2);
+        const lonFixed = parseFloat(lon).toFixed(2);
+
+        // Bu lokasyon zaten var mı kontrol et
+        const isAlreadyExists = visitors.find(v => 
+            v.lat.toFixed(2) === latFixed && v.lng.toFixed(2) === lonFixed
+        );
+
+        // EĞER YOKSA: Listeye ekle ve SADECE BURADA log bas
+        if (!isAlreadyExists) {
+            const colors = ['#00ff88', '#ff0055', '#00e5ff', '#ff9100'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            const newVisitor = {
+                id: `v-${Date.now()}`,
+                lat: parseFloat(lat),
+                lng: parseFloat(lon),
+                city: city || 'Unknown',
+                color: randomColor
+            };
+
+            visitors.push(newVisitor);
+            
+            // Terminalde sadece yeni yerler görünecek
+            console.log(`✨ Arşive Yeni Lokasyon Eklendi: ${city}`);
+        }
+
+        // Lokasyon varsa veya yoksa, frontend'e her zaman "tamam" döndür (Hata vermemesi için)
+        return res.status(200).json({ success: true });
     }
-    res.status(400).json({ error: "Eksik veri" });
+    res.status(400).send("Geçersiz veri");
 });
 
-// Haritanın tüm noktaları çektiği rota
 app.get('/api/visitors', (req, res) => {
     res.json(visitors);
 });
 
 const PORT = 5001;
-app.listen(PORT, () => console.log(`🚀 Siber Harita Backend: http://localhost:${PORT}`));
+app.listen(PORT, () => {
+    console.log(`\n🚀 Siber Arşiv Sunucusu Aktif: http://localhost:${PORT}`);
+    console.log(`📺 Yeni lokasyonlar keşfedildikçe burada görünecek...\n`);
+});
