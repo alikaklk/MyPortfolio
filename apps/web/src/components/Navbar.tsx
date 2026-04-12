@@ -15,6 +15,7 @@ export default function Navbar() {
           <li><Link to="/about" className={styles.NavLink}>About</Link></li>
           <li><Link to="/skills" className={styles.NavLink}>Skills</Link></li>
           <li><Link to="/projects" className={styles.NavLink}>Projects</Link></li>
+          <li><Link to="/visitor" className={styles.NavLink}>Visitor Map</Link></li>
           <li><Link to="/contact" className={styles.NavLink}>Contact</Link></li>
         </ul>
       </nav>
