@@ -15,13 +15,11 @@ export default function VisitorMap() {
         const res = await fetch('http://localhost:5001/api/visitors');
         const data = await res.json();
         setVisitors(data);
-      } catch (e) {
-        console.log("Arşiv yüklenemedi.");
-      }
+      } catch (e) {}
     };
 
     getArchive();
-    const interval = setInterval(getArchive, 20000); 
+    const interval = setInterval(getArchive, 15000);
     return () => {
       window.removeEventListener('resize', handleResize);
       clearInterval(interval);
@@ -37,13 +35,13 @@ export default function VisitorMap() {
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
         
-        // Siber Noktalar
+        // Siber Nokta Ayarları
         pointsData={visitors}
         pointColor={(d: any) => d.color}
         pointAltitude={0.02}
         pointRadius={0.3}
         
-        // Siber Halkalar
+        // Siber Halka (Ripple) Ayarları
         ringsData={visitors}
         ringColor={(d: any) => d.color}
         ringMaxRadius={10}
