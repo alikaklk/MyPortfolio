@@ -11,11 +11,9 @@ app.post('/api/visit', (req, res) => {
     const { lat, lon, city } = req.body;
 
     if (lat && lon) {
-        // Koordinat hassasiyetini sabitle (0.1 yaklaşık 11km'lik bir alanı kapsar)
         const latF = parseFloat(lat).toFixed(1);
         const lonF = parseFloat(lon).toFixed(1);
 
-        // Bu lokasyon arşivde var mı?
         const isAlreadyExists = visitors.find(v => 
             v.lat.toFixed(1) === latF && v.lng.toFixed(1) === lonF
         );
@@ -26,15 +24,14 @@ app.post('/api/visit', (req, res) => {
                 id: `v-${Date.now()}`,
                 lat: parseFloat(lat),
                 lng: parseFloat(lon),
-                city: city || 'Secret Location',
+                city: city || 'Unknown',
                 color: colors[Math.floor(Math.random() * colors.length)]
             });
-            
-            console.log(`✨ Yeni Keşif: ${city} lokasyonu arşive eklendi.`);
+            console.log(`✨ Yeni Lokasyon: ${city}`);
         }
         return res.status(200).json({ success: true });
     }
-    res.status(400).send("Geçersiz veri");
+    res.status(400).send("Hata");
 });
 
 app.get('/api/visitors', (req, res) => {
@@ -42,7 +39,4 @@ app.get('/api/visitors', (req, res) => {
 });
 
 const PORT = 5001;
-app.listen(PORT, () => {
-    console.log(`\n🌍 Siber Arşiv Sunucusu Aktif: http://localhost:${PORT}`);
-    console.log(`🚀 Sadece yeni lokasyonlar burada bildirilecek...\n`);
-});
+app.listen(PORT, () => console.log(`🚀 Sunucu: http://localhost:${PORT}`));

@@ -13,18 +13,17 @@ export default function App() {
     const registerGlobalVisit = async () => {
       try {
         if (!sessionStorage.getItem('vMap_registered')) {
-          // CORS ve 429 hatasını aşmak için ipinfo.io kullanıyoruz
-          const geoRes = await fetch('https://ipinfo.io/json?token=7563847e11409e'); // Bu ücretsiz bir token örneğidir
+          // Token gerektirmeyen, güvenli servis:
+          const geoRes = await fetch('https://ipapi.co/json/');
           const geoData = await geoRes.json();
 
-          if (geoData.loc) {
-            const [lat, lon] = geoData.loc.split(',');
+          if (geoData.latitude && geoData.longitude) {
             await fetch('http://localhost:5001/api/visit', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ 
-                lat: parseFloat(lat), 
-                lon: parseFloat(lon), 
+                lat: geoData.latitude, 
+                lon: geoData.longitude, 
                 city: geoData.city 
               })
             });
