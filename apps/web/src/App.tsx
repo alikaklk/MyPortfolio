@@ -10,12 +10,7 @@ import Contact from "./pages/ContactPage/Contact";
 
 export default function App() {
   useEffect(() => {
-    if (!sessionStorage.getItem('vMap_registered')) {
-      // .NET terminalindeki portu buraya yaz (Örn: 7123)
-      fetch('http://localhost:5287/api/visit', { method: 'POST' })
-        .then(() => sessionStorage.setItem('vMap_registered', 'true'))
-        .catch(() => {});
-    }
+   fetch('http://localhost:5287/api/visit', { method: 'POST' }).catch(() => {});
   }, []);
 
   return (
