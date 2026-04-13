@@ -10,12 +10,11 @@ export default function VisitorMap() {
     const handleResize = () => setSize({ width: window.innerWidth, height: window.innerHeight });
     window.addEventListener('resize', handleResize);
 
-    const getArchive = async () => {
-      try {
-        const res = await fetch('http://localhost:5001/api/visitors');
-        const data = await res.json();
-        setVisitors(data);
-      } catch (e) {}
+    const getArchive = () => {
+      fetch('http://localhost:5001/api/visitors')
+        .then(res => res.json())
+        .then(setVisitors)
+        .catch(() => {});
     };
 
     getArchive();
