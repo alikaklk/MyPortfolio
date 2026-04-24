@@ -23,12 +23,15 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/leaflet": "^1.9.21",
     "turbo": "latest"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@skill-icons/react": "^0.0.1",
     "framer-motion": "^12.29.2",
-    "lucide-react": "^0.563.0"
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.563.0",
+    "react-leaflet": "^5.0.0"
   }
 }

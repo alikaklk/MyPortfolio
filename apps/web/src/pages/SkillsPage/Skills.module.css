@@ -106,3 +106,38 @@ h2::after {
         height: 45px !important;
     }
 }
+
+.lowLevelSkillsContainer,
+.middleLevelSkillsContainer,
+.highLevelSkillsContainer    {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s var(--curve);
+}
+
+
+
+.lowLevelSkillsContainer h3,
+.middleLevelSkillsContainer h3,
+.highLevelSkillsContainer h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.lowLevelSkills,
+.middleLevelSkills,
+.highLevelSkills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+}
+

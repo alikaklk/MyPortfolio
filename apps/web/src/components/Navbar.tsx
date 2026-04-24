@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, User, Code2, LayoutGrid, Mail, Globe } from "lucide-react";
+import { Home, User, Code2, LayoutGrid, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import styles from "./Navbar.module.css";
 
@@ -11,7 +11,6 @@ export default function Navbar() {
     { id: 'about', icon: User, label: 'About', path: '/about' },
     { id: 'skills', icon: Code2, label: 'Skills', path: '/skills' },
     { id: 'projects', icon: LayoutGrid, label: 'Projects', path: '/projects' },
-    { id: 'visitor', icon: Globe, label: 'Map', path: '/visitor' }, // BURASI EKLENDİ
     { id: 'contact', icon: Mail, label: 'Contact', path: '/contact' }
   ];
 
