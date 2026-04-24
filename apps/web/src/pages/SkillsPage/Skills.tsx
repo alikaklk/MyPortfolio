@@ -43,7 +43,7 @@ export default function Skills() {
                         <div className={styles.IconsAndNameContainer}><ReactLight className={styles.SkillsIcons}/><h3>React</h3></div>
                         <div className={styles.IconsAndNameContainer}><PostgreSqlLight className={styles.SkillsIcons}/><h3>PostgreSQL</h3></div>
                         <div className={styles.IconsAndNameContainer}><PythonLight className={styles.SkillsIcons}/><h3>Python</h3></div>
-
+                        <div className={styles.IconsAndNameContainer}><SupabaseDark className={styles.SkillsIcons}/><h3>Supabase</h3></div>
                     </div>
                         
                 </div>
@@ -52,7 +52,7 @@ export default function Skills() {
                     <div className={styles.highLevelSkills}>
                         <div className={styles.IconsAndNameContainer}><Git className={styles.SkillsIcons}/><h3>Git</h3></div>
                         <div className={styles.IconsAndNameContainer}><GithubLight className={styles.SkillsIcons}/><h3>GitHub</h3></div>
-                        <div className={styles.IconsAndNameContainer}><SupabaseDark className={styles.SkillsIcons}/><h3>Supabase</h3></div>
+                        
                 
                     </div>
                 </div>
