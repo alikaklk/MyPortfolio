@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/HomePage/Home";
@@ -8,9 +8,7 @@ import Projects from "./pages/ProjectsPage/Projects";
 import Contact from "./pages/ContactPage/Contact";
 
 export default function App() {
-  useEffect(() => {
-   fetch('http://localhost:5287/api/visit', { method: 'POST' }).catch(() => {});
-  }, []);
+  
 
   return (
     <BrowserRouter>
