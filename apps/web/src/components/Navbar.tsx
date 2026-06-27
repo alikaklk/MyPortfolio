@@ -18,7 +18,6 @@ export default function Navbar() {
   return (
     <header className={styles.Header}>
       {/* MASAÜSTÜ NAVBAR */}
-      
       <nav className={styles.DesktopNav}>
         <ul className={styles.NavUl}>
           {navItems.map((item) => (
