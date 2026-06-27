@@ -58,7 +58,7 @@ export default function Contact() {
                 </div>
 
                 <div className={styles.SocialLinks}>
-                    <a href="https://www.instagram.com/debugdays_ali" target="_blank" rel="noreferrer" className={styles.SocialIcon}>
+                    <a href="https://www.instagram.com/devbyali_" target="_blank" rel="noreferrer" className={styles.SocialIcon}>
                         <Instagram />
                     </a>
                     <a href="https://www.linkedin.com/in/ali-k-36b73331b?" target="_blank" rel="noreferrer" className={styles.SocialIcon}>

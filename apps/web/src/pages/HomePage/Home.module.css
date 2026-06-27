@@ -32,6 +32,7 @@ body {
     text-align: center;
     background: radial-gradient(circle at center, #111 0%, #050505 100%);
     padding: 0 20px;
+    
 }
 
 .SplitTextContainer {
@@ -105,3 +106,4 @@ body {
         padding: 0 10px;
     }
 }
+

@@ -3,6 +3,7 @@ import styles from './Home.module.css';
 export default function Home() {
   return (
     <section className={styles.Hero}>
+        
         <div className={styles.SplitTextContainer}>
             <span className={styles.TextPartLeft}>
                 <h1>Welcome to</h1>

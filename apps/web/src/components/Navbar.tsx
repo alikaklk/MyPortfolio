@@ -11,12 +11,14 @@ export default function Navbar() {
     { id: 'about', icon: User, label: 'About', path: '/about' },
     { id: 'skills', icon: Code2, label: 'Skills', path: '/skills' },
     { id: 'projects', icon: LayoutGrid, label: 'Projects', path: '/projects' },
+    { id: 'certificates', icon: LayoutGrid, label: 'Certificates', path: '/certificates' },
     { id: 'contact', icon: Mail, label: 'Contact', path: '/contact' }
   ];
 
   return (
     <header className={styles.Header}>
       {/* MASAÜSTÜ NAVBAR */}
+      
       <nav className={styles.DesktopNav}>
         <ul className={styles.NavUl}>
           {navItems.map((item) => (

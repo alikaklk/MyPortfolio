@@ -5,7 +5,9 @@ import Home from "./pages/HomePage/Home";
 import About from "./pages/AboutPage/About";
 import Skills from "./pages/SkillsPage/Skills";
 import Projects from "./pages/ProjectsPage/Projects";
+import Certificate from "./pages/CertificatePage/Certificate";
 import Contact from "./pages/ContactPage/Contact";
+
 
 export default function App() {
   
@@ -19,6 +21,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/certificates" element={<Certificate />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

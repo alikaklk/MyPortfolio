@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #050505;
+    --accent: #00ff88; 
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --card:rgba(255, 255, 255, 0.101) ;
+    --border: rgba(255, 255, 255, 0.08);
+    --button: #09d576;
+}
+
+.certificatePageContainer{
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 48px 24px;
+    text-align: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+}
+.cardImage{
+    height: 300px;
+    width: 500px;
+}
+
+.certificateCard{
+    width: 800px;
+    background-color: var(--card);
+    border-radius: 40px;
+    padding: 30px 14px;
+    text-align: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+    margin-left: 170px;
+}
+
+.title{
+    font-family: 'Times New Roman', serif;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 2px 2px 8px var(--text-dim);
+    margin-bottom: 40px;
+}
