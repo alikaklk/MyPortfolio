@@ -1,54 +1,227 @@
-* {
-    margin: 0;
-    padding: 0;
+.certificatePageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1300px;
+    margin: 110px auto 40px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    perspective: 1200px;
+}
+
+/* Tüm sayfanın net bir şekilde blurlanması */
+.blurAllPages {
+    filter: blur(10px);
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.4s ease;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #FE7F2D;
+    margin-bottom: 35px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px #fe812d1b;
+    font-family: 'Space Mono', monospace !important;
+}
+
+.certificateGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 850px;
+    z-index: 4;
+    transition: filter 0.4s ease;
+}
+
+.certificateItemWrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    animation: globalFloat 4s ease-in-out infinite;
+}
+
+.pausedAnimation {
+    animation-play-state: paused !important;
+}
+
+@keyframes globalFloat {
+    0%, 100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotateX(1deg) rotateY(-1deg);
+    }
+}
+
+.imageContainer {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background: transparent;
+    box-shadow: 0 10px 30px #233d4d9f, 0 0 20px#233d4d9f;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificateItemWrapper:hover .imageContainer {
+    border-color:#233d4d9f;
+    box-shadow: 0 15px 40px #fe812d1b, 0 0 30px #fe812d1b;
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    background: transparent;
+}
+
+.certificateItemWrapper:hover .cardImage {
+    transform: scale(1.04);
+}
+
+.cardTitle {
+    font-size: 0.95rem;
+    color: var(--text-main, #ffffff);
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.certificateItemWrapper:hover .cardTitle {
+    color: #233d4d9f;
+}
+
+/* ==========================================
+   ÖZEL ODAK SAYFASI / TAM EKRAN GÖRÜNÜM (Pop-up Değil)
+   ========================================== */
+.focusOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent; /* Siyah perde/karartma kesinlikle yok */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 20px;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    animation: fadeInFocus 0.3s ease;
 }
 
-:root {
-    --bg: #050505;
-    --accent: #00ff88; 
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.08);
-    --curve: cubic-bezier(0.4, 0, 0.2, 1);
-    --card:rgba(255, 255, 255, 0.101) ;
-    --border: rgba(255, 255, 255, 0.08);
-    --button: #09d576;
+@keyframes fadeInFocus {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-.certificatePageContainer{
-    max-width: 1200px;
-    margin: 50px auto 0;
-    padding: 48px 24px;
-    text-align: center;
+.focusContent {
+    background: rgba(15, 15, 22, 0.95);
+    border: 2px solid #233d4d9f;
+    border-radius: 24px;
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px #fe812d1b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #EAECF0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    backdrop-filter: blur(6px);
-}
-.cardImage{
-    height: 300px;
-    width: 500px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
 }
 
-.certificateCard{
-    width: 800px;
-    background-color: var(--card);
-    border-radius: 40px;
-    padding: 30px 14px;
+.closeButton:hover {
+    background:#233d4d9f;
+    color: #FE7F2D;
+    border-color: #233d4d9f;
+}
+
+.focusTitle {
+    font-size: 1.3rem;
+    color: #FE7F2D;
+    margin-bottom: 20px;
     text-align: center;
-    justify-content: center;
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--border);
-    transition: transform 0.3s ease;
-    margin-left: 170px;
-}
-
-.title{
-    font-family: 'Times New Roman', serif;
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
     font-weight: 700;
-    color: var(--accent);
-    text-shadow: 2px 2px 8px var(--text-dim);
-    margin-bottom: 40px;
+    padding-right: 40px;
+}
+
+.focusImageWrapper {
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.focusImage {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.starsBackground {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px var(--accent, #00FF88); }
+}
+
+.star-1 { top: 10%; left: 15%; width: 2px; height: 2px; animation-duration: 2s; }
+.star-2 { top: 25%; left: 85%; width: 3px; height: 3px; animation-duration: 3.5s; }
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .certificateGrid {
+        grid-template-columns: 1fr;
+    }
 }

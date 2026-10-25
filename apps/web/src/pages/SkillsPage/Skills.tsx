@@ -12,52 +12,115 @@ import {
   Html,
   Css,
   AngularLight,
-  GoLang,
   SupabaseDark,
-  Swift,
 } from "@skill-icons/react";
 
-export default function Skills() {
-    return (
-        <div className={styles.SkillsContainer}>
-            <h2>My Skills And Tools</h2>
-            <div className={styles.SkillsIconsContainer}>
-                <div className={styles.lowLevelSkillsContainer}>
-                    <h3>Low-Level Skills</h3>
-                    <div className={styles.lowLevelSkills}>
-                        <div className={styles.IconsAndNameContainer}><Html className={styles.SkillsIcons}/><h3>Html</h3></div>
-                        <div className={styles.IconsAndNameContainer}><Css className={styles.SkillsIcons}/><h3>Css</h3></div>
-                        <div className={styles.IconsAndNameContainer}><JavaScript className={styles.SkillsIcons}/><h3>JavaScript</h3></div>
-                        <div className={styles.IconsAndNameContainer}><TypeScript className={styles.SkillsIcons}/><h3>TypeScript</h3></div>
-                        <div className={styles.IconsAndNameContainer}><Swift className={styles.SkillsIcons}/><h3>Swift</h3></div>
-                        <div className={styles.IconsAndNameContainer}><TailwindCssLight className={styles.SkillsIcons}/><h3>TailwindCSS</h3></div>
-                        <div className={styles.IconsAndNameContainer}><GoLang className={styles.SkillsIcons}/><h3>GoLang</h3></div>
-                        <div className={styles.IconsAndNameContainer}><DotNet className={styles.SkillsIcons}/><h3>.NET</h3></div>
+interface SkillItem {
+  id: number;
+  name: string;
+  icon: React.ReactNode;
+}
 
-                    </div>
-                </div>
-                <div className={styles.middleLevelSkillsContainer}>
-                    <h3>Middle-Level Skills</h3>
-                    <div className={styles.middleLevelSkills}>
-                        <div className={styles.IconsAndNameContainer}><AngularLight className={styles.SkillsIcons}/><h3>Angular</h3></div>
-                        <div className={styles.IconsAndNameContainer}><ReactLight className={styles.SkillsIcons}/><h3>React</h3></div>
-                        <div className={styles.IconsAndNameContainer}><PostgreSqlLight className={styles.SkillsIcons}/><h3>PostgreSQL</h3></div>
-                        <div className={styles.IconsAndNameContainer}><PythonLight className={styles.SkillsIcons}/><h3>Python</h3></div>
-                        <div className={styles.IconsAndNameContainer}><SupabaseDark className={styles.SkillsIcons}/><h3>Supabase</h3></div>
-                    </div>
-                        
-                </div>
-                <div className={styles.highLevelSkillsContainer}>
-                    <h3>High-Level Skills</h3>
-                    <div className={styles.highLevelSkills}>
-                        <div className={styles.IconsAndNameContainer}><Git className={styles.SkillsIcons}/><h3>Git</h3></div>
-                        <div className={styles.IconsAndNameContainer}><GithubLight className={styles.SkillsIcons}/><h3>GitHub</h3></div>
-                        
-                
-                    </div>
-                </div>
-     
-            </div>
+const frontendSkills: SkillItem[] = [
+  { id: 1, name: "HTML & CSS", icon: <><Html /><Css /></> },
+  { id: 2, name: "JavaScript", icon: <JavaScript /> },
+  { id: 3, name: "TypeScript", icon: <TypeScript /> },
+  { id: 4, name: "React", icon: <ReactLight /> },
+  { id: 5, name: "Angular", icon: <AngularLight /> },
+  { id: 6, name: "Tailwind", icon: <TailwindCssLight /> },
+];
+
+const backendSkills: SkillItem[] = [
+  { id: 7, name: "Python", icon: <PythonLight /> },
+  { id: 8, name: ".NET", icon: <DotNet /> },
+];
+
+const databaseSkills: SkillItem[] = [
+  { id: 9, name: "PostgreSQL & Supabase", icon: <><PostgreSqlLight /><SupabaseDark /></> },
+  { id: 10, name: "Git & GitHub", icon: <><Git /><GithubLight /></> },
+];
+
+export default function Skills() {
+  return (
+    <div className={styles.SkillsContainer}>
+      <div className={styles.SolarOrbitContainer}>
+        
+        {/* Arkada Yanıp Sönen Yıldızlar (Arka Plan Efekti) */}
+        <div className={styles.StarsBackground}>
+          {[...Array(25)].map((_, i) => (
+            <div key={i} className={`${styles.Star} ${styles[`star-${i + 1}`]}`} />
+          ))}
         </div>
-    );
+
+        {/* Merkezdeki Güneş */}
+        <div className={styles.Sun}>
+          <span>SKILLS</span>
+        </div>
+
+        {/* 1. Halka: Frontend */}
+        <div className={`${styles.OrbitRing} ${styles.OrbitFrontend}`}>
+          {frontendSkills.map((skill, index) => {
+            const angle = (index / frontendSkills.length) * 360;
+            return (
+              <div
+                key={skill.id}
+                className={styles.PlanetWrapper}
+                style={{
+                  transform: `rotate(${angle}deg) translate(130px) rotate(-${angle}deg)`,
+                }}
+              >
+                <div className={styles.PlanetCard} title={skill.name}>
+                  <div className={styles.PlanetIcon}>{skill.icon}</div>
+                  <span className={styles.PlanetName}>{skill.name}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* 2. Halka: Backend */}
+        <div className={`${styles.OrbitRing} ${styles.OrbitBackend}`}>
+          {backendSkills.map((skill, index) => {
+            const angle = (index / backendSkills.length) * 360;
+            return (
+              <div
+                key={skill.id}
+                className={styles.PlanetWrapper}
+                style={{
+                  transform: `rotate(${angle}deg) translate(210px) rotate(-${angle}deg)`,
+                }}
+              >
+                <div className={styles.PlanetCard} title={skill.name}>
+                  <div className={styles.PlanetIcon}>{skill.icon}</div>
+                  <span className={styles.PlanetName}>{skill.name}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* 3. Halka: Database & Tools */}
+        <div className={`${styles.OrbitRing} ${styles.OrbitDatabase}`}>
+          {databaseSkills.map((skill, index) => {
+            const angle = (index / databaseSkills.length) * 360;
+            return (
+              <div
+                key={skill.id}
+                className={styles.PlanetWrapper}
+                style={{
+                  transform: `rotate(${angle}deg) translate(290px) rotate(-${angle}deg)`,
+                }}
+              >
+                <div className={styles.PlanetCard} title={skill.name}>
+                  <div className={styles.PlanetIcon}>{skill.icon}</div>
+                  <span className={styles.PlanetName}>{skill.name}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </div>
+  );
 }

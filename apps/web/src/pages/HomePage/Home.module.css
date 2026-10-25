@@ -1,109 +1,101 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-:root {
-    --bg: #050505;
-    --accent: #00ff88; 
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.08);
-    --curve: cubic-bezier(0.4, 0, 0.2, 1);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.Hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at center, #111 0%, #050505 100%);
-    padding: 0 20px;
-    
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
 }
 
-.SplitTextContainer {
-    display: flex;
-    gap: 20px;
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    overflow: hidden;
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  margin-top:200px;
 }
 
-.TextPartLeft, .TextPartRight {
-    display: inline-block;
-    animation-duration: 1.4s;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    animation-fill-mode: forwards;
+.hero h1, .hero p {
+  font-family: 'Space Mono', monospace !important;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-.TextPartLeft h1, .TextPartRight h1 {
-    font-size: inherit;
-    background: linear-gradient(to right, #fff, var(--accent, #00ff88));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 0;
+/* Üst Yazı: Soldan Hızlı Giriş (Flash Efekti) */
+.topText {
+  color: #FE7F2D;
+  font-size: 3rem;
+  animation: flashEnterFromLeft 0.8s cubic-bezier(0.05, 0.9, 0.2, 1.05) forwards;
+  text-shadow: 0 0 10px rgba(255, 127, 32, 0.6), 0 0 20px rgba(255, 69, 0, 0.4);
 }
 
-.TextPartLeft {
-    transform: translateX(-150%);
-    animation-name: slideInLeft;
+/* Alt Yazı: Sağdan Hızlı Giriş (Flash Efekti) */
+.bottomText {
+  color: #EAECF0;
+  font-size: 1.5rem;
+  animation: flashEnterFromRight 0.8s cubic-bezier(0.05, 0.9, 0.2, 1.05) forwards;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
-.TextPartRight {
-    transform: translateX(150%);
-    animation-name: slideInRight;
-}
-
-.HeroP {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: var(--text-dim, #a0a0a0);
-    max-width: 600px;
+/* Animasyon Keyframes: Soldan Geliş + Motion Blur + Titreşim */
+@keyframes flashEnterFromLeft {
+  0% {
+    transform: translateX(-150vw) skewX(-30deg);
     opacity: 0;
-    animation: fadeIn 1s ease-out 1.2s forwards;
+    filter: blur(12px);
+  }
+  70% {
+    transform: translateX(20px) skewX(10deg);
+    opacity: 1;
+    filter: blur(2px);
+  }
+  85% {
+    transform: translateX(-10px) skewX(-5deg);
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
 
-@keyframes slideInLeft {
-    to { transform: translateX(0); }
+/* Animasyon Keyframes: Sağdan Geliş + Motion Blur + Titreşim */
+@keyframes flashEnterFromRight {
+  0% {
+    transform: translateX(150vw) skewX(30deg);
+    opacity: 0;
+    filter: blur(12px);
+  }
+  70% {
+    transform: translateX(-20px) skewX(-10deg);
+    opacity: 1;
+    filter: blur(2px);
+  }
+  85% {
+    transform: translateX(10px) skewX(5deg);
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
-
-@keyframes slideInRight {
-    to { transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-@media (max-width: 768px) {
-    .SplitTextContainer {
-        flex-direction: column;
-        gap: 0;
-        line-height: 1.1;
-    }
-
-    .TextPartLeft, .TextPartRight {
-        animation-duration: 1s;
-    }
-
-    .HeroP {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-}
-

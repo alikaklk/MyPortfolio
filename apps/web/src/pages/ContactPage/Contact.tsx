@@ -4,7 +4,6 @@ import styles from "./Contact.module.css";
 import { Instagram, LinkedIn, GmailLight } from "@skill-icons/react";
 
 export default function Contact() {
-    // TypeScript için ref tipini tanımladık
     const form = useRef<HTMLFormElement>(null);
 
     const sendEmail = (e: React.FormEvent) => {
@@ -12,10 +11,10 @@ export default function Contact() {
 
         if (form.current) {
             emailjs.sendForm(
-                'service_ej3pifd',   // Service ID
-                'template_1zzc84i',   // Template ID
+                'service_ej3pifd',
+                'template_1zzc84i',
                 form.current,
-                'FdupUMh1QY59RW65u'   // Public Key
+                'FdupUMh1QY59RW65u'
             )
             .then(() => {
                 alert("Message sent successfully! 🚀");

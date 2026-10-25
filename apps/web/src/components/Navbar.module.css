@@ -1,6 +1,6 @@
 .Header {
     position: fixed;
-    top: 20px;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -12,26 +12,30 @@
     display: flex;
     gap: 30px;
     padding: 12px 40px;
-    background: rgba(255, 255, 255, 0.03);
+    background: #233d4d9f;
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid #233d4d9f;
     border-radius: 100px;
     list-style: none;
     margin: 0;
+    box-shadow: 0px -15px 19px 1px #fe812d1b;
+    -webkit-box-shadow: 0px -15px 19px 1px #fe812d31;
 }
 
 .NavLink {
     text-decoration: none;
-    color: #a0a0a0;
+    color: #EAECF0;
     font-weight: 500;
     font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
 .NavLink:hover {
-    color: #00ff88;
-    text-shadow: 0 0 10px #00ff88;
+    color: #FE7F2D !important;
+    text-shadow: 0 0 10px #FE7F2D !important;
 }
+
+
 
 .MobileNav {
     display: none; 

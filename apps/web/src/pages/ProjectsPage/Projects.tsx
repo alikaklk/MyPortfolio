@@ -1,52 +1,127 @@
-import styles from  "./Projects.module.css";
-import picosmarthomealarm from "../../../../images/pico-smart-home.png"
-import picosmartwateringsystem from "../../../../images/pico-smart-watering.png"
+import styles from "./Projects.module.css";
+import picosmarthomealarm from "../../../../images/pico-smart-home.png";
+import picosmartwateringsystem from "../../../../images/pico-smart-watering.png";
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tech: string;
+  image?: string;
+  link: string;
+}
+
+const projectsData: Project[] = [
+  {
+    id: 1,
+    title: "Guardian-IP-Blocker",
+    description: "macOS native IP blocking automation using Python and pfctl.",
+    tech: "Python",
+    link: "https://github.com/alikaklk/Guardian-IP-Blocker",
+  },
+  {
+    id: 2,
+    title: "safeguard-leak-checker",
+    description: "Yüksek performanslı veri sızıntısı ve güvenlik tarama aracı.",
+    tech: "TypeScript",
+    link: "https://github.com/alikaklk/safeguard-leak-checker",
+  },
+  {
+    id: 3,
+    title: "pico-smart-home-alarm",
+    description: "Pico tabanlı akıllı ev alarm ve güvenlik otomasyon sistemi.",
+    tech: "Python / IoT",
+    image: picosmarthomealarm,
+    link: "https://github.com/alikaklk/pico-smart-home-alarm",
+  },
+  {
+    id: 4,
+    title: "pico-smart-watering",
+    description: "Otomatik MicroPython tabanlı akıllı sulama ve nem kontrol sistemi.",
+    tech: "Python / Sensors",
+    image: picosmartwateringsystem,
+    link: "https://github.com/alikaklk/pico-smart-watering",
+  },
+  {
+    id: 5,
+    title: "cyber-tool-ui",
+    description: "Siber güvenlik araçları için modern arayüz ve kontrol paneli.",
+    tech: "TypeScript",
+    link: "https://github.com/alikaklk/cyber-tool-ui",
+  },
+  {
+    id: 6,
+    title: "ImageOptimizeService",
+    description: "Görsel optimizasyon ve işleme servis uygulaması.",
+    tech: "TypeScript",
+    link: "https://github.com/alikaklk/ImageOptimizeService",
+  },
+  {
+    id: 7,
+    title: "SimpleAiTranslateService",
+    description: "Yapay zeka destekli hızlı çeviri servis uygulaması.",
+    tech: "TypeScript",
+    link: "https://github.com/alikaklk/SimpleAiTranslateService",
+  },
+  {
+    id: 8,
+    title: "DailyTarotTr",
+    description: "Swift ile geliştirilmiş mobil/web tarot falı uygulaması.",
+    tech: "Swift",
+    link: "https://github.com/alikaklk/DailyTarotTr",
+  },
+  {
+    id: 9,
+    title: "fine-arts-club",
+    description: "Güzel sanatlar kulübü için tasarlanmış web arayüzü.",
+    tech: "CSS",
+    link: "https://github.com/alikaklk/fine-arts-club",
+  },
+];
 
 export default function Projects() {
-    return (
-        <div className={styles.ProjectsPageContainer}>
-            <h1>My Projects!</h1>
-            <div className={styles.ProjectsCardsContainer}>
-                <div className={styles.ProjectCard}>
-                    <h2>Guardian: macOS Native IDS/IPS</h2>
-                    <p>Tech Stack:Python, Shell, macOS PF (Packet Filter)</p>
-                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/Guardian-IP-Blocker" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
-                </div>
-                <div className={styles.ProjectCard}>
-                    <h2>SafeGuard Leak Checker</h2>
-                    
-                    <p>
-                        Go ve Next.js kullanılarak geliştirilmiş, yüksek performanslı bir siber güvenlik aracı. 
-                        Milyonlarca satırlık veri sızıntısını saniyeler içinde tarayarak dijital güvenliğinizi kontrol eder.
-                    </p>
-                    <div className={styles.TechTags}>
-                        <span>Go</span>
-                        <span>Next.js</span>
-                        <span>TypeScript</span>
-                    </div>
-                    
-                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/safeguard-leak-checker" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
-                    
-                    </div>
-                <div className={styles.ProjectCard}>
-                    <h2>Pico Smart Home Alarm</h2>
-                    <p>This project is an IoT / Embedded System application that continuously monitors ambient temperature and harmful gas levels. When critical threshold values are exceeded, it generates immediate visual (LED) and audible (Siren/Buzzer) alarms to ensure safety.</p>
-                    <img src={picosmarthomealarm} alt="Pico Smart Home Alarm" />
-                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/pico-smart-home-alarm" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
-                </div>
-                <div className={styles.ProjectCard}>
-                    <h2>Pico Smart Watering System</h2>
-                    <p>This project is an automated MicroPython-based irrigation application designed to control water flow dynamically. It utilizes a DS18B20 temperature sensor to track environmental or soil conditions and a servo motor that acts as a mechanical valve—physically squeezing a hose to shut off the water and releasing it to irrigate when needed.</p>
-                    <img src={picosmartwateringsystem} alt="Pico Smart Watering System" />
-                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="https://github.com/alikaklk/pico-smart-watering" target="_blank" rel="noopener noreferrer">View on GitHub</a></button>
-                </div>
-                <div className={styles.ProjectCard}>
-                    <h2>Project 5</h2>
-                    <p>Coming Soon...</p>
-                    <button className={styles.ProjectViewButton}><a className={styles.ProjectViewLink} href="#">View Project</a></button>
-                </div>
-            </div>
+  return (
+    <div className={styles.ProjectsPageContainer}>
+      {/* Yıldızlı Arka Plan */}
+      <div className={styles.StarsBackground}>
+        {[...Array(20)].map((_, i) => (
+          <div key={i} className={`${styles.Star} ${styles[`star-${i + 1}`]}`} />
+        ))}
+      </div>
+
+      <div className={styles.ContentWrapper}>
+        {/* Merkezdeki Başlık */}
+        <div className={styles.CentralTitleBox}>
+          <h2 className={styles.ProjectsTitle}>My Projects!</h2>
         </div>
-    );
+
+        {/* Düzenli Proje Kartları Grid Yapısı */}
+        <div className={styles.ProjectsGrid}>
+          {projectsData.map((project) => (
+            <a
+              key={project.id}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ProjectCard}
+            >
+              <div className={styles.CardGlow}></div>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+
+              {project.image && (
+                <div className={styles.ImageContainer}>
+                  <img src={project.image} alt={project.title} className={styles.ProjectImage} />
+                </div>
+              )}
+
+              <div className={styles.TechTags}>
+                <span>{project.tech}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }

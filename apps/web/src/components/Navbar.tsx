@@ -25,7 +25,7 @@ export default function Navbar() {
               <Link 
                 to={item.path} 
                 className={styles.NavLink}
-                style={{ color: location.pathname === item.path ? '#00ff88' : '' }}
+                style={{ color: location.pathname === item.path ? '#FE7F2D' : '' }}
               >
                 {item.label}
               </Link>

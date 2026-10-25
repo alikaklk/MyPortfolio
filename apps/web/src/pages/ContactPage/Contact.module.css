@@ -1,55 +1,29 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-:root {
-    --bg: #050505;
-    --accent: #00ff88; 
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.08);
-    --curve: cubic-bezier(0.4, 0, 0.2, 1);
-    --card:rgba(255, 255, 255, 0.101) ;
-    --border: rgba(255, 255, 255, 0.08);
-    --button: #09d576;
-}  
-
-body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-    
-}
-
 .ContactPageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    background-color: #050505;
 }
 
 .ContactFormContainer {
     width: 100%;
     max-width: 500px;
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     padding: 40px;
     backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .ContactTitle {
-    color: var(--accent);
+    color: #ff8800;
     font-size: 1.8rem;
     margin-bottom: 25px;
     text-align: center;
+    font-weight: 700;
 }
 
 .ContactForm {
@@ -65,44 +39,50 @@ body {
 }
 
 .InputGroup label {
-    color: var(--accent);
+    color: #ff8800;
     font-size: 0.9rem;
     font-weight: 500;
 }
 
 .InputGroup input, 
 .InputGroup textarea {
-    background: var(--bg);
-    border: 1px solid var(--border);
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 12px 15px;
-    color: var(--text-main);
+    color: #ffffff;
     font-family: inherit;
     outline: none;
     transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .InputGroup input:focus, 
 .InputGroup textarea:focus {
-    border-color: var(--accent);
-    background: var(--bg);
+    border-color: #ff8800;
+    background: #050505;
+    box-shadow: 0 0 10px rgba(255, 136, 0, 0.2);
 }
 
 .ContactInputButton {
-    background-color: var(--button);
+    background-color: #ff8800; /* Buton turuncu */
     border: none;
     border-radius: 10px;
     height: 45px;
-    color: var(--bg);
+    color: #ffffff; /* Submit yazısı beyaz */
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s var(--curve);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-top: 10px;
+    width: 100%;
+    font-size: 1rem;
 }
 
 .ContactInputButton:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px var(--button);
+    box-shadow: 0 5px 15px rgba(255, 136, 0, 0.4);
+    background-color: #ffa233;
 }
 
 .SocialSeparator {
@@ -110,7 +90,7 @@ body {
     align-items: center;
     text-align: center;
     margin: 30px 0 20px;
-    color: var(--text-dim);
+    color: #a0a0a0;
     font-size: 0.7rem;
     letter-spacing: 2px;
 }
@@ -119,7 +99,7 @@ body {
 .SocialSeparator::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .SocialSeparator::before { margin-right: 15px; }
@@ -132,10 +112,9 @@ body {
 }
 
 .SocialIcon {
-    transition: transform 0.3s var(--curve);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
-    
 }
 
 .SocialIcon svg {

@@ -1,113 +1,170 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-:root {
-    --bg: #050505;
-    --accent: #00ff88; 
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.08);
-    --curve: cubic-bezier(0.4, 0, 0.2, 1);
-    --card: rgba(255, 255, 255, 0.101);
-    --button: #09d576;
-}  
-
-body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    justify-content: center;
-    overflow-x: hidden;
-}
-
 .ProjectsPageContainer {
-    max-width: 1200px;
-    margin: 50px auto 0;
-    padding: 48px 24px;
-    text-align: center;
+    display: flex;
     justify-content: center;
-    backdrop-filter: blur(6px);
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1300px;
+    margin: 160px auto 80px auto;
+    padding: 0 20px;
+    background: transparent;
+    position: relative;
+    z-index: 1;
 }
 
-.ProjectsPageContainer h1 {
-    font-family: 'Times New Roman', serif;
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
-    font-weight: 700;
-    color: var(--accent);
-    text-shadow: 2px 2px 8px var(--text-dim);
-    margin-bottom: 40px;
-}
-
-img{
-    margin-bottom: 50px;
-    height: 300px;
-}
-
-.ProjectsCardsContainer {
+.ContentWrapper {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 20px;
+    align-items: center;
+    gap: 50px;
 }
 
-.ProjectCard {
+/* Merkez Başlık Kutusu */
+.CentralTitleBox {
+    background: #233d4d9f;
+    border: 2px solid #233d4d9f;
+    padding: 15px 40px;
+    border-radius: 50px;
+    box-shadow: 0 0 30px #fe812d1b;
+    z-index: 5;
+    animation: titlePulse 3s ease-in-out infinite alternate;
+}
+
+.ProjectsTitle {
+    font-size: 2.2rem;
+    color: #FE7F2D;
+    margin: 0;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+@keyframes titlePulse {
+    0% { box-shadow: 0 0 20px #fe812d1b; transform: scale(1); }
+    100% { box-shadow: 0 0 40px #fe812d7b; transform: scale(1.03); }
+}
+
+/* Düzenli Grid Yerleşimi (Üst üste binme ihtimali sıfır) */
+.ProjectsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     width: 100%;
-    background-color: var(--card);
-    border-radius: 40px;
-    padding: 48px 24px;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    border: 1px solid var(--border);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display:block;
-    transition: transform 0.3s ease;
+    max-width: 1200px;
+    z-index: 4;
+}
+
+/* Proje Kartı Standartları */
+.ProjectCard {
+    position: relative;
+    background: #233d4d9f;
+    border: 1px solid #233d4d9f;
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px #233d4d9f;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 .ProjectCard:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    border-color: #233d4d9f;
+    box-shadow: 0 12px 35px #fe812d1b;
 }
 
-.ProjectViewLink {
-    text-decoration: none;
-    color: var(--text-main);
+.ProjectCard h2 {
+    font-size: 1.05rem;
+    color: #FE7F2D;
+    margin-bottom: 8px;
 }
 
-.ProjectViewButton {
-    background-color: var(--button);
-    border: none;
-    border-radius: 80px;
-    height: 40px;
-    width: 140px;
-    cursor: pointer;
-    font-weight: 600;
-    display: block;          /* Blok elemente çevirir */
-    margin: 20px auto 0 auto;
-    text-align: center;
-    line-height: 40px;
+.ProjectCard p {
+    font-size: 0.8rem;
+    color: #EAECF0;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.ImageContainer {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.ProjectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.ProjectCard:hover .ProjectImage {
+    transform: scale(1.1);
+}
+
+.TechTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.TechTags span {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    background: #FE7F2D;
+    border: 1px solid #FE7F2D;
+    border-radius: 12px;
+    color: #EAECF0;
+}
+
+/* Yıldız Efekti */
+.StarsBackground {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.Star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px var(--accent); }
+}
+
+.star-1 { top: 10%; left: 15%; width: 2px; height: 2px; animation-duration: 2s; }
+.star-2 { top: 20%; left: 80%; width: 3px; height: 3px; animation-duration: 3.5s; }
+.star-3 { top: 75%; left: 10%; width: 2px; height: 2px; animation-duration: 4s; }
+.star-4 { top: 85%; left: 85%; width: 3px; height: 3px; animation-duration: 2.5s; }
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+    .ProjectsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
     .ProjectsPageContainer {
-        padding: 40px 15px;
+        margin-top: 100px;
     }
-
-    .ProjectCard {
-        border-radius: 30px;
-        padding: 30px 20px;
+    .ProjectsGrid {
+        grid-template-columns: 1fr;
     }
-
-    .ProjectsPageContainer h1 {
-        margin-bottom: 20px;
+    .StarsBackground {
+        display: none;
     }
-
-    
 }
-
