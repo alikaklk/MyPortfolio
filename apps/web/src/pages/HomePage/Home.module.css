@@ -19,55 +19,62 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  min-height: 80vh;
   width: 100%;
+  padding: 0 20px;
 }
 
 .textContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   text-align: center;
-  margin-top:200px;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 0; /* Mobilde dikey ortalamayı bozmaması için sıfırlandı, esneklik sağlandı */
 }
 
 .hero h1, .hero p {
   font-family: 'Space Mono', monospace !important;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  width: 100%;
+  word-break: break-word;
 }
 
-/* Üst Yazı: Soldan Hızlı Giriş (Flash Efekti) */
+/* Üst Yazı: Soldan Hızlı Giriş (Flash Efekti) - Akışkan (Fluid) Font Boyutu */
 .topText {
   color: #FE7F2D;
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   animation: flashEnterFromLeft 0.8s cubic-bezier(0.05, 0.9, 0.2, 1.05) forwards;
   text-shadow: 0 0 10px rgba(255, 127, 32, 0.6), 0 0 20px rgba(255, 69, 0, 0.4);
+  padding: 0 10px;
 }
 
-/* Alt Yazı: Sağdan Hızlı Giriş (Flash Efekti) */
+/* Alt Yazı: Sağdan Hızlı Giriş (Flash Efekti) - Akışkan (Fluid) Font Boyutu */
 .bottomText {
   color: #EAECF0;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   animation: flashEnterFromRight 0.8s cubic-bezier(0.05, 0.9, 0.2, 1.05) forwards;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  padding: 0 10px;
 }
 
-/* Animasyon Keyframes: Soldan Geliş + Motion Blur + Titreşim */
+/* Animasyon Keyframes: Soldan Geliş + Motion Blur + Titreşim (Mobilde taşmayı önlemek için VW oranları optimize edildi) */
 @keyframes flashEnterFromLeft {
   0% {
-    transform: translateX(-150vw) skewX(-30deg);
+    transform: translateX(-100vw) skewX(-20deg);
     opacity: 0;
     filter: blur(12px);
   }
   70% {
-    transform: translateX(20px) skewX(10deg);
+    transform: translateX(15px) skewX(8deg);
     opacity: 1;
     filter: blur(2px);
   }
   85% {
-    transform: translateX(-10px) skewX(-5deg);
+    transform: translateX(-8px) skewX(-4deg);
     filter: blur(0px);
   }
   100% {
@@ -80,22 +87,41 @@ body {
 /* Animasyon Keyframes: Sağdan Geliş + Motion Blur + Titreşim */
 @keyframes flashEnterFromRight {
   0% {
-    transform: translateX(150vw) skewX(30deg);
+    transform: translateX(100vw) skewX(20deg);
     opacity: 0;
     filter: blur(12px);
   }
   70% {
-    transform: translateX(-20px) skewX(-10deg);
+    transform: translateX(-15px) skewX(-8deg);
     opacity: 1;
     filter: blur(2px);
   }
   85% {
-    transform: translateX(10px) skewX(5deg);
+    transform: translateX(8px) skewX(4deg);
     filter: blur(0px);
   }
   100% {
     transform: translateX(0) skewX(0deg);
     opacity: 1;
     filter: blur(0px);
+  }
+}
+
+/* Mobil Cihazlar İçin Ekstra Hassas Ayarlar */
+@media (max-width: 480px) {
+  .hero {
+    height: 70vh;
+  }
+  
+  .textContainer {
+    gap: 12px;
+  }
+
+  .topText {
+    letter-spacing: 1px;
+  }
+
+  .bottomText {
+    letter-spacing: 0.5px;
   }
 }

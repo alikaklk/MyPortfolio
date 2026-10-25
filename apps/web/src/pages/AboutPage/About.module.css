@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 * {
     margin: 0;
@@ -16,12 +16,13 @@ body {
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     gap: 15px;
     color: #FE7F2D !important;
+    width: 100%;
 }
 
 h2::after {
@@ -31,46 +32,52 @@ h2::after {
     background: #FE7F2D;
 }
 
-strong{
+strong {
     text-decoration: underline;
     color: #FE7F2D;
 }
 
-.AboutContainer{
+.AboutContainer {
     display: flex;
-    padding: 100px 10% 60px;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 8% 60px;
     max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 140px;
+    width: 90%;
+    margin: 120px auto 60px auto;
     border-radius: 30px;
     background: #233d4d9f;
-
-
+    box-sizing: border-box;
 }
 
-
-
-.p, p, h2{
-    margin-bottom: 30px;
+.p, p, h2 {
+    margin-bottom: 20px;
 }
 
-.AboutImage{
-    height: 500px;
+.AboutImage {
+    height: auto;
+    max-height: 450px;
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
 }
 
 section {
-    
     color: #EAECF0;
     font-family: 'Times New Roman', Times, serif;
-
 }
 
+/* Tablet ve Küçük Dizüstü Ekranlar */
 @media (max-width: 1024px) {
     .AboutContainer {
         flex-direction: column;
-        padding: 60px 5%;
-        margin-top: 100px;
+        padding: 50px 6%;
+        margin-top: 90px;
         text-align: center;
+        width: 92%;
+        gap: 30px;
     }
 
     h2 {
@@ -85,17 +92,34 @@ section {
     .AboutImage {
         height: auto;
         width: 100%;
-        max-width: 400px;
+        max-width: 320px;
     }
 }
 
+/* Mobil Cihazlar */
 @media (max-width: 480px) {
     .AboutContainer {
-        padding: 40px 20px;
-        border-radius: 0;
+        padding: 30px 16px;
+        margin-top: 80px;
+        margin-bottom: 90px; /* Alt navbar (mobile dock) çakışmasını önlemek için boşluk */
+        border-radius: 20px;
+        width: 95%;
+        gap: 20px;
     }
 
     h2 {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .AboutImage {
+        max-width: 100%;
+        height: auto;
+        max-height: 280px;
+    }
+
+    p, .p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
     }
 }

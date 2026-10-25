@@ -6,12 +6,13 @@
     padding: 40px 20px;
     width: 100%;
     max-width: 1200px;
-    /* Navbar'ın arkasında kalmaması için üst boşluk artırıldı */
     margin: 80px auto 60px auto;
     background: transparent;
     min-height: 650px;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .SolarOrbitContainer {
@@ -189,47 +190,26 @@
     100% { transform: rotate(360deg); }
 }
 
+/* --- MOBİL UYUMLULUK (Aynı Animasyon & Görünüm İçin Ölçeklendirme) --- */
 @media (max-width: 768px) {
     .SkillsContainer {
-        padding: 20px 5%;
-        margin-top: 100px;
+        padding: 10px 5px;
+        margin-top: 70px;
+        margin-bottom: 90px;
+        min-height: 500px;
     }
 
     .SolarOrbitContainer {
-        height: auto;
-        flex-direction: column;
-        gap: 30px;
+        transform: scale(0.65);
+        transform-origin: center;
+        margin: -40px 0;
     }
+}
 
-    .Sun, .OrbitRing {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border: none;
-        animation: none;
-        transform: none !important;
-    }
-
-    .PlanetWrapper {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        transform: none !important;
-        margin-bottom: 10px;
-    }
-
-    .PlanetCard {
-        position: relative;
-        animation: none !important;
-        width: 100%;
-        flex-direction: row;
-        justify-content: flex-start;
-        padding: 10px 15px;
-        transform: none !important;
-    }
-
-    .StarsBackground {
-        display: none;
+@media (max-width: 480px) {
+    .SolarOrbitContainer {
+        transform: scale(0.53);
+        transform-origin: center;
+        margin: -80px 0;
     }
 }

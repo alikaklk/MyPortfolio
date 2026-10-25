@@ -1,4 +1,4 @@
-import styles from '../SkillsPage/Skills.module.css';
+import styles from './Skills.module.css';
 import {
   JavaScript,
   TypeScript, 
@@ -45,7 +45,7 @@ export default function Skills() {
     <div className={styles.SkillsContainer}>
       <div className={styles.SolarOrbitContainer}>
         
-        {/* Arkada Yanıp Sönen Yıldızlar (Arka Plan Efekti) */}
+        {/* Arkada Yanıp Sönen Yıldızlar */}
         <div className={styles.StarsBackground}>
           {[...Array(25)].map((_, i) => (
             <div key={i} className={`${styles.Star} ${styles[`star-${i + 1}`]}`} />

@@ -34,7 +34,7 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {/* MOBİL NAVBAR (Verdiğin CSS yapısı) */}
+      {/* MOBİL NAVBAR (Alt Dock) */}
       <nav className={styles.MobileNav}>
         <div className={styles.MobileWrapper}>
           {navItems.map((item) => {
@@ -52,8 +52,8 @@ export default function Navbar() {
                 )}
                 <div className={styles.IconContent}>
                   <Icon 
-                    size={20} 
-                    color={isActive ? "#fff" : "#808080"} 
+                    size={18} 
+                    color={isActive ? "#FE7F2D" : "#9ca3af"} 
                   />
                   {isActive && <span className={styles.MobileLabel}>{item.label}</span>}
                 </div>
